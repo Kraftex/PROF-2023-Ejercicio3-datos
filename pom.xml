@@ -13,6 +13,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+  <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
@@ -28,7 +35,12 @@
 			<version>5.10.0</version>
 			<scope>test</scope>
 		</dependency>
-
+    
+    <dependency>
+      <groupId>com.github.Kraftex</groupId>
+      <artifactId>TestSmellDetector</artifactId>
+      <version>-SNAPSHOT</version>
+    </dependency>
 	</dependencies>
 
 	<build>
@@ -50,7 +62,30 @@
 				<version>2.22.0</version>
 			</plugin>
 
+
+      <!-- Example of how to address the plugin an configure -->
+      <plugin>
+        <groupId>es.upm.alumnos.profundizacion</groupId>
+        <artifactId>mvn-tsdetect-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <!-- Hihger priority over properties -->
+          <!-- To run the plugin configure jar location con <jar> -->
+          <!-- 
+            <jar>/path/to/TSDetect.jar</jar>
+            -->
+            <jar>/home/kraftex/my_programs/muii-master/Profundización en Ingeniería del Software/github-projects/TestSmellDetector.jar</jar>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>tsdetect</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 		</plugins>
 	</build>
+
 
 </project>
